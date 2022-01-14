@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { Button } from './Button';
+import { Breadcrumbs } from './components/Breadcrumb/Breadcrumbs';
 
 function App() {
   return (
     <div className="App">
-		<Button />
+		<Breadcrumbs />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

@@ -1,0 +1,53 @@
+@media screen {
+	.breadcrumbs {
+		@apply text-gray flex p-0;
+		margin: 4px 0;
+		list-style: none;
+		//margin: 0;
+		span {
+			@apply text-xs;
+		}
+		a {
+			@apply text-gray no-underline;
+			&:hover {
+				@apply underline;
+			}
+		}
+		.active {
+			@apply text-orange;
+		}
+		&.clearance .active {
+			@apply text-red;
+		}
+	}
+	.breadcrumb {
+		margin: 0 0.3em 0 0;
+		.breadcrumb-spacer,
+		a,
+		span {
+			@apply text-sm;
+		}
+		.active {
+			@apply font-semibold text-gray;
+		}
+	}
+	.breadcrumb-spacer {
+		@apply inline-block;
+		margin-left: 0.3em;
+	}
+}
+
+@screen smOnly {
+	.breadcrumbs {
+		@apply block;
+		margin-top: 10px;
+	}
+	.breadcrumb {
+		@apply inline;
+		.breadcrumb-spacer,
+		a,
+		span {
+			@apply text-xs;
+		}
+	}
+}
