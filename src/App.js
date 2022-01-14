@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { breadcrumbModels } from './components/Breadcrumb/Breadcrumbs.data';
+
 import { Breadcrumbs } from './components/Breadcrumb/Breadcrumbs';
 
 function App() {
   return (
     <div className="App">
-		<Breadcrumbs />
+		<Breadcrumbs model={breadcrumbModels} />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

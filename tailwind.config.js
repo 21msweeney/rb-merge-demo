@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 module.exports = {
 	prefix: 'tw-',
   future: {
@@ -41,6 +43,13 @@ module.exports = {
 		white: {
 			default: '#ffffff',
 		},
+	},
+	fontFamily: {
+		sans: [
+			'Proxima Nova W01',
+			...fontFamily.sans,
+		],
+		mono: [...fontFamily.mono],
 	},
 	fontSize: {
 		'7xs': '8px',
