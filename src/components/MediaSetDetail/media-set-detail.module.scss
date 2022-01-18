@@ -1,0 +1,128 @@
+$jump-link-dimensions: 75px;
+$jump-link-color-1: theme('colors.gray.default');
+$jump-link-color-2: theme('colors.white.default');
+
+// specific media sizing for MediaSetDetail
+.media-set-detail {
+	@apply mb-5;
+
+	:global .slick-slide > div > * {
+		height: 250px;
+	}
+
+	:global .slick-slide img {
+		max-height: 250px;
+	}
+}
+
+.media-set-detail-fullscreen {
+	:global .slick-slide .show-navigation,
+	:global .cylindo-wrapper {
+		height: 650px !important;
+		max-height: calc(100vh - 190px);
+	}
+
+	:global .slick-slide .show-navigation img{
+		max-height: calc(100vh - 190px);
+	}
+
+	:global .slick-slide > div > * img {
+		max-height: 100vh;
+		&.show-drift {
+			@screen md {
+				pointer-events: auto; // to show drift-zoom zoomed in panel the image needs to have pointer events enabled
+				&:active, &:focus {
+					pointer-events: none; // disables pointer events while interacting with image (panning, zooming, etc)
+				}
+			}
+		}
+	}
+
+	:global .media-set-has-caption .slick-slide .show-navigation > *,
+	:global .media-set-has-caption .slick-slide .show-navigation > img {
+		max-height: calc(100vh - 220px);
+	}
+
+	:global .cylindo-wrapper {
+		@apply mb-5;
+	}
+}
+
+.stylitics-jump-link {
+	@apply p-4 mr-8;
+	position: absolute;
+	background: $jump-link-color-1;
+	color:$jump-link-color-2;
+	font-size: 13px;
+	text-decoration: none;
+	opacity: 0.9;
+	border-radius: 100px;
+	height: $jump-link-dimensions;
+	width: $jump-link-dimensions;
+	top: -($jump-link-dimensions);
+	right: 0;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+	opacity: 0.9;
+	visibility: visible;
+	transition: opacity 300ms, visibility 300ms;
+
+	&:hover, &:focus {
+		background: $jump-link-color-2;
+		opacity: 1;
+		border: 1px solid $jump-link-color-1;
+		color: $jump-link-color-1;
+		.caret:before {
+			border-color: $jump-link-color-1;
+		}
+	}
+	&.mobile-hidden {
+		opacity: 0;
+		visibility: hidden;
+		@screen md {
+			opacity: 1;
+			visibility: visible;;
+		}
+	}
+	.caret {
+		&:before {
+			display: block;
+			border-style: solid;
+			border-color: $jump-link-color-2;
+			border-bottom-width: 1px;
+			border-right-width: 1px;
+			content: "";
+			height: 12px;
+			width: 12px;
+			transform: rotate(45deg);
+		}
+
+	}
+	@screen md {
+		@apply mr-8;
+		top: -($jump-link-dimensions + 48px);
+	}
+}
+
+@screen md {
+	.media-set-detail {
+		@apply mb-16;
+
+		:global .slick-slide > div > *,
+		:global .cylindo-wrapper {
+			height: 400px !important;
+		}
+
+		:global .slick-slide img {
+			max-height: 400px;
+		}
+
+		:global .cylindo-wrapper {
+			@apply mb-5;
+		}
+	}
+}

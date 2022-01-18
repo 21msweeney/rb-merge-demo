@@ -1,0 +1,33 @@
+.media-control-cylindo {
+	@apply rounded-full;
+	height: 42px;
+	padding: 3px;
+	width: 42px;
+
+	&.media-control-cylindo-active, &:hover {
+		@apply border border-solid border-gray;
+
+		.media-control-cylindo-text {
+			@apply bg-gray text-white;
+		}
+	}
+}
+
+.media-control-cylindo-active {
+	.media-control-cylindo-text {
+		@apply bg-gray text-white;
+	}
+
+	&:hover {
+		.media-control-cylindo-text {
+			@apply bg-white text-gray;
+		}
+	}
+}
+
+.media-control-cylindo-text {
+	@apply border-gray flex items-center justify-center rounded-full text-2xs text-gray;
+	border: 1px solid;
+	height: 100%;
+	width: 100%;
+}

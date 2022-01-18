@@ -1,0 +1,31 @@
+.media-control {
+	&:not(.media-control-hidden) {
+		@apply border-l border-solid border-gray ml-4 pl-4;
+
+		~ .media-control {
+			@apply border-l-0 mx-2 pl-0;
+		}
+	}
+}
+
+.media-control-hidden {
+	@apply hidden;
+}
+
+@screen md {
+	.media-control {
+		@apply border-l-0 mx-2 pl-0;
+
+		&:not(.media-control-hidden) {
+			@apply border-l-0 mx-2 pl-0;
+		}
+
+		&:first-child {
+			@apply border-l border-solid border-gray ml-4 pl-4;
+		}
+	}
+
+	.md-media-control-block {
+		@apply block;
+	}
+}

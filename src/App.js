@@ -4,11 +4,13 @@ import './App.css';
 import { breadcrumbModels } from './components/Breadcrumb/Breadcrumbs.data';
 
 import { Breadcrumbs } from './components/Breadcrumb/Breadcrumbs';
+import { MediaSetDetail } from './components/MediaSetDetail/MediaSetDetail';
 
 function App() {
   return (
     <div className="App">
 		<Breadcrumbs model={breadcrumbModels} />
+		<MediaSetDetail />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

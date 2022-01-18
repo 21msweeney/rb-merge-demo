@@ -1,0 +1,9 @@
+.media-caption {
+	@apply my-2 text-center;
+
+	&.slider-with-nav-thumbnail {
+		@apply tw-font-light tw-text-left tw-text-lg tw-mt-0;
+		margin-bottom: 15px;
+		min-height: 60px;
+	}
+}
