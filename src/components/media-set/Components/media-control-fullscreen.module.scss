@@ -1,0 +1,14 @@
+.media-control-fullscreen {
+	@apply rounded-full bg-white;
+	height: 36px;
+	width: 36px;
+
+	&:focus,
+	&:hover {
+		@apply bg-gray;
+
+		.media-control-fullscreen-image {
+			filter: invert(1)
+		}
+	}
+}

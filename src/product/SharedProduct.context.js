@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from 'react';
 import { enableStaticRendering } from 'mobx-react';
 
-import { isOnServer } from '~/global/global.constants';
+import { isOnServer } from 'global/global.constants';
 import { clearanceProductContext } from '~/product/clearance/Contexts/ClearanceStores.context';
 import { productMultiOptionsContext } from '~/product/multi-options/Contexts/ProductMultiOptions.context';
 import { productCasegoodsContext } from '~/product/casegoods/Contexts/ProductCasegoods.context';

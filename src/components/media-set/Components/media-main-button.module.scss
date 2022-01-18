@@ -1,0 +1,11 @@
+.media-main-button {
+	@apply flex flex-col items-center justify-center max-h-full max-w-full;
+
+	&:focus {
+		@apply outline-none shadow-none #{'!important'};
+	}
+
+	:global [data-disable-media-interaction="true"] {
+		@apply pointer-events-none;
+	}
+}

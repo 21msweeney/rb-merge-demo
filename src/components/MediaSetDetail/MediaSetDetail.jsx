@@ -2,10 +2,10 @@ import React, { useRef } from 'react';
 import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
 
-import { useProductContext } from 'product/SharedProduct.context';
-import { MediaControlCylindo } from './MediaControlCylindo';
-import { MediaControlFullscreenClose, MediaControlFullscreenOpen } from 'components/media-set/Components/MediaControlFullscreen';
-import { MediaCylindo } from './MediaControlCylindo';
+// import { useProductContext } from 'product/SharedProduct.context';
+// import { MediaControlCylindo } from './MediaControlCylindo';
+// import { MediaControlFullscreenClose, MediaControlFullscreenOpen } from 'components/media-set/Components/MediaControlFullscreen';
+// import { MediaCylindo } from './MediaControlCylindo';
 import { MediaSet } from './MediaSet';
 // import {
 // 	mediaSetDetailFullscreenProps,
@@ -23,6 +23,15 @@ export const MediaSetDetail = observer((props) => {
 	const {
 		magicModal
 	} = useGlobalContext();
+
+	const mediaSetDetailProps = {
+		numDotsToShow: 7,
+		mainHeight: 400,
+		mainWidth: 675,
+		showArrowsForMedium: true,
+		showDimensions: true,
+		trLinkEventCompType: 'product details media viewer',
+	};
 
 	// unbox selectedMediaIndex at initialization time - we don't want initialSlide prop to be observable
 	// const {
@@ -173,17 +182,15 @@ export const MediaSetDetail = observer((props) => {
 			data-qa="media-set-detail"
 			role="region"
 		>
-			{/* <MediaSet
+			<MediaSet
 				{...mediaSetDetailProps}
 				appendBeforeMediaControls={
-					styliticsWidgetDidLoad && styliticsSku && !styliticsWidgetIsHidden && <div className="tw-relative">
+					<div className="tw-relative">
 						<a
 							data-tr-link-event-name="stylitics jump link"
 							data-qa="stylitics-jump-link"
-							ref={jumpLinkRef}
 							className={`${styles['stylitics-jump-link']} tw-hidden-for-print`}
-							href={`#${styliticsId}`}
-							onClick={scrollToID}
+							href='/test'
 						>
 							How to Style It
 							<div className={styles['caret']} />
@@ -200,7 +207,7 @@ export const MediaSetDetail = observer((props) => {
 				mediaSetStore={mediaSetDetailStore}
 				trLinkEventCompName={groupName || productName || shortProductName}
 				variant="Product Detail"
-			/> */}
+			/>
 		</div>
 	);
 });

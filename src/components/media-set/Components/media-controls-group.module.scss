@@ -1,0 +1,9 @@
+.media-controls-group {
+	@apply flex items-center;
+}
+
+.media-controls-group-single {
+	> :first-child {
+		@apply border-l-0 ml-2 pl-0;
+	}
+}

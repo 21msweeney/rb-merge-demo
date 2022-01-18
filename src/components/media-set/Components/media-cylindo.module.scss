@@ -1,0 +1,43 @@
+.media-cylindo {
+	:global .cylindo-drag-tooltip {
+		@apply bg-white bg-opacity-75 font-light font-sans text-gray text-lg;
+
+		.left:before, .right:after {
+			@apply text-3xl;
+			line-height: 6px;
+		}
+	}
+
+	:global .cylindo-ar-button > a {
+		@apply tw-box-content;
+	}
+
+	:global .cylindo-ar-modal.is-qr-modal {
+		> a {
+			@apply tw-box-content whitespace-no-wrap z-10;
+		}
+
+		> h1 {
+			top: 3%;
+		}
+
+		> .cylindo-devices-img {
+			top: 40%;
+		}
+	}
+
+	:global .ar-text {
+		@apply whitespace-no-wrap;
+	}
+}
+
+@screen md {
+	.media-cylindo {
+		:global .cylindo-drag-tooltip {
+			.left:before, .right:after {
+				@apply font-thin text-5xl;
+				line-height: 4px;
+			}
+		}
+	}
+}

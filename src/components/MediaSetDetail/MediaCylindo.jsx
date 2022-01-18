@@ -2,8 +2,8 @@ import { observer } from 'mobx-react';
 import React, { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
 
-import styles from '#/product/common/media-set/media-cylindo.module.scss';
-import { isOnServer } from '~/global/global.constants';
+import styles from './media-cylindo.module.scss';
+import { isOnServer } from 'global/global.constants';
 
 export const MediaCylindo = observer((props = {}) => {
 	const {

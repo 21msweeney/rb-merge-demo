@@ -6,14 +6,14 @@ import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
 import classNames from 'classnames';
 
-import { useGlobalContext } from '~/global/Contexts/Global.context';
-import { MediaMainCounter } from '~/media-set/Components/MediaMainCounter';
-import { MediaCaption } from '~/media-set/Components/MediaCaption';
-import { MediaControls } from '~/media-set/Components/MediaControls';
-import { MediaMain } from '~/media-set/Components/MediaMain';
-import { MediaNavNext, MediaNavPrev } from '~/media-set/Components/MediaNav';
-import { MediaThumbnail } from '~/media-set/Components/MediaThumbnail';
-import { noop } from '~/util/noop';
+import { useGlobalContext } from 'global/Contexts/Global.context';
+import { MediaMainCounter } from 'components/media-set/Components/MediaMainCounter';
+import { MediaCaption } from 'components/media-set/Components/MediaCaption';
+import { MediaControls } from 'components/media-set/Components/MediaControls';
+import { MediaMain } from 'components/media-set/Components/MediaMain';
+import { MediaNavNext, MediaNavPrev } from 'components/media-set/ComponentsMediaNav';
+import { MediaThumbnail } from 'components/media-set/ComponentsMediaThumbnail';
+import { noop } from 'util/noop';
 
 export const MediaSetSlider = observer((props = {}) => {
 	const {

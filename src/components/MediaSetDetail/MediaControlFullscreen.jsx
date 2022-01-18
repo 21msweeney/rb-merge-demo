@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { s7ContentPath, sitePath } from '~/global/global.constants';
-import { MediaControl } from '~/media-set/Components/MediaControl';
-import { noop } from '~/util/noop';
+import { s7ContentPath, sitePath } from 'global/global.constants';
+import { MediaControl } from 'components/media-set/Components/MediaControl';
+import { noop } from 'util/noop';
 
-import styles from '#/media-set/media-control-fullscreen.module.scss';
+import styles from './media-control-fullscreen.module.scss';
 
 import { LinkEventTypes } from '~/tracking/link-event/Models/LinkEvent.model';
 

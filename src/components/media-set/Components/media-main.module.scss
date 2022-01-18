@@ -1,0 +1,7 @@
+.media-main-container {
+	@apply flex flex-col items-center justify-center relative w-full;
+}
+
+.media-main {
+	@apply flex flex-col items-center justify-center max-h-full relative;
+}

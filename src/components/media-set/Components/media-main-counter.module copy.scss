@@ -1,0 +1,13 @@
+.media-main-counter {
+	@apply absolute bg-gray-200 duration-300 delay-500 flex m-2 opacity-100 px-2 right-0 self-end text-xs text-white top-0 transition-opacity;
+}
+
+.media-main-counter-selected {
+	@apply delay-2500 opacity-0;
+}
+
+@screen md {
+	.media-main-counter {
+		@apply mr-12;
+	}
+}

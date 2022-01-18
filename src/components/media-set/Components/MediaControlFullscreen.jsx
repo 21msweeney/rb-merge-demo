@@ -1,19 +1,14 @@
 import React from 'react';
 
-import { s7ContentPath, sitePath } from '~/global/global.constants';
-import { MediaControl } from '~/media-set/Components/MediaControl';
-import { noop } from '~/util/noop';
+import { s7ContentPath, sitePath } from 'global/global.constants';
+import { MediaControl } from 'components/media-set/Components/MediaControl';
+import { noop } from 'util/noop';
 
-import styles from '#/media-set/media-control-fullscreen.module.scss';
-
-import { LinkEventTypes } from '~/tracking/link-event/Models/LinkEvent.model';
+import styles from './media-control-fullscreen.module.scss';
 
 export const MediaControlFullscreen = (props = {}) => {
 	const {
 		buttonRef,
-		dataTrLinkEventName = '',
-		dataTrLinkEventTrack = null,
-		dataQa = '',
 		onClick = noop,
 		src = '',
 	} = props;
@@ -21,10 +16,6 @@ export const MediaControlFullscreen = (props = {}) => {
 	return (
 		<button
 			className={styles['media-control-fullscreen']}
-			data-tr-link-event-name={dataTrLinkEventName}
-			data-tr-link-event-track={dataTrLinkEventTrack}
-			data-tr-link-event-type={LinkEventTypes.SITE_ACTION}
-			data-qa={dataQa}
 			onClick={onClick}
 			ref={buttonRef}
 		>

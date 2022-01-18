@@ -1,9 +1,8 @@
 import { observer } from 'mobx-react';
 import React, { useEffect, useRef, useState } from 'react';
-import Script from 'next/script';
 
-import styles from '#/product/common/media-set/media-cylindo.module.scss';
-import { isOnServer } from '~/global/global.constants';
+import styles from './media-cylindo.module.scss';
+import { isOnServer } from 'global/global.constants';
 
 export const MediaCylindo = observer((props = {}) => {
 	const {
@@ -92,13 +91,13 @@ export const MediaCylindo = observer((props = {}) => {
 				)
 			}
 			{
-				shouldLoad && (
-					<Script
-						src="https://viewer.cylindo.com/v4/viewer.min.js"
-						strategy="lazyOnload"
-						onLoad={handleLoad}
-					/>
-				)
+				// shouldLoad && (
+				// 	<Script
+				// 		src="https://viewer.cylindo.com/v4/viewer.min.js"
+				// 		strategy="lazyOnload"
+				// 		onLoad={handleLoad}
+				// 	/>
+				// )
 			}
 		</>
 	);
