@@ -6,8 +6,6 @@ import { noop } from 'util/noop';
 
 import styles from './media-control-fullscreen.module.scss';
 
-import { LinkEventTypes } from '~/tracking/link-event/Models/LinkEvent.model';
-
 export const MediaControlFullscreen = (props = {}) => {
 	const {
 		buttonRef,
@@ -23,7 +21,6 @@ export const MediaControlFullscreen = (props = {}) => {
 			className={styles['media-control-fullscreen']}
 			data-tr-link-event-name={dataTrLinkEventName}
 			data-tr-link-event-track={dataTrLinkEventTrack}
-			data-tr-link-event-type={LinkEventTypes.SITE_ACTION}
 			data-qa={dataQa}
 			onClick={onClick}
 			ref={buttonRef}

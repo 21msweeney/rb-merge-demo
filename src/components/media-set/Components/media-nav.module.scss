@@ -1,0 +1,57 @@
+// need the media-nav-container rule to achieve greater specificicity when competing with .tw-not-sr-only
+.media-nav-container {
+	.media-nav {
+		@apply bg-white flex items-center justify-center rounded-full bottom-1/2 z-10;
+		// !important position: absolute rule to override .tw-not-sr-only which sets position: static and auto width/height
+		@apply absolute #{!important};
+		height: 35px !important;
+		opacity: 0.9;
+		width: 35px !important;
+
+		&:before {
+			@apply block border-gray border-solid;
+			content: '';
+			height: 16px;
+			width: 16px;
+		}
+
+		&:focus, &:hover {
+			@apply bg-gray opacity-100;
+			// !important position: absolute rule to override .tw-not-sr-only which sets position: static and auto width/height
+			@apply absolute #{!important};
+			height: 35px !important;
+			width: 35px !important;
+
+			&:before {
+				@apply border-white;
+			}
+		}
+	}
+
+	&.slider-with-nav-thumbnail {
+		.media-nav-next {
+			right: 10px;
+		}
+		.media-nav-prev {
+			left: 10px;
+		}
+	}
+}
+
+.media-nav-next {
+	@apply right-0;
+
+	&:before {
+		transform: rotate(-45deg) translateX(-3px) translateY(-3px);
+		@apply border-b border-r transform -rotate-45 -translate-x-1;
+	}
+}
+
+.media-nav-prev {
+	@apply left-0;
+
+	&:before {
+		transform: rotate(45deg) translateX(-3px) translateY(3px);
+		@apply border-b border-l transform rotate-45 translate-x-1;
+	}
+}

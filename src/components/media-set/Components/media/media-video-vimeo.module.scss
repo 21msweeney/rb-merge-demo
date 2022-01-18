@@ -1,0 +1,15 @@
+.media-video-vimeo {
+	@apply relative;
+
+	:global iframe {
+		@apply max-w-full;
+	}
+}
+
+.media-video-vimeo-duration {
+	@apply absolute bg-gray bottom-0 px-2 py-1 right-0 text-white;
+
+	font-size: 11px;
+	line-height: 11px;
+	padding: 1px 3px;
+}

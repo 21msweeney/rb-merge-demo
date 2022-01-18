@@ -1,0 +1,27 @@
+.media-link-shop-this-room {
+	@apply absolute bg-white border border-gray border-solid bottom-0 flex items-center left-0 m-2 no-underline rounded-full text-gray;
+	opacity: 0.9;
+
+	&:focus,
+	&:hover {
+		@apply bg-gray opacity-100;
+
+		.media-link-shop-this-room-image {
+			filter: invert(1);
+		}
+
+		.media-link-shop-this-room-text {
+			@apply text-white;
+		}
+	}
+}
+
+.media-link-shop-this-room-image {
+	height: 25px;
+	margin: 4px;
+	width: 25px;
+}
+
+.media-link-shop-this-room-text {
+	@apply ml-1 mr-3;
+}

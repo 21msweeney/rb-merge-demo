@@ -1,0 +1,50 @@
+@media screen {
+	.shop-this-room-media, .media-image-container {
+		position: relative;
+	}
+
+	.media-buttons {
+		position: absolute;
+		bottom: 10px;
+		z-index: 2;
+		left: 10px;
+		display: flex;
+	}
+
+	.shop-this-room-link {
+		margin: 0 8px;
+		height: 34px;
+		width: 34px;
+		cursor: pointer;
+		background-color: hsla(0,0%,100%,.9);
+		border: 1px solid #333;
+		border-radius: 20px;
+
+		padding: 5px 0;
+		width: auto;
+		display: flex;
+		align-items: center;
+		font-size: 15px;
+		color: #333;
+		text-decoration: none;
+
+		svg {
+			width: 26px;
+			margin-left: 10px;
+			stroke: #333;
+			fill: transparent;
+		}
+
+		.shop-this-room-link-text {
+			margin: 0 10px;
+		}
+		&:focus,
+		&:hover {
+			background-color: #333;
+			color: #fff;
+			svg {
+				filter: invert(1);
+			}
+		}
+	}
+}

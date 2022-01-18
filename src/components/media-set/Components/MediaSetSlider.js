@@ -11,8 +11,8 @@ import { MediaMainCounter } from 'components/media-set/Components/MediaMainCount
 import { MediaCaption } from 'components/media-set/Components/MediaCaption';
 import { MediaControls } from 'components/media-set/Components/MediaControls';
 import { MediaMain } from 'components/media-set/Components/MediaMain';
-import { MediaNavNext, MediaNavPrev } from 'components/media-set/ComponentsMediaNav';
-import { MediaThumbnail } from 'components/media-set/ComponentsMediaThumbnail';
+import { MediaNavNext, MediaNavPrev } from 'components/media-set/Components/MediaNav';
+import { MediaThumbnail } from 'components/media-set/Components/MediaThumbnail';
 import { noop } from 'util/noop';
 
 export const MediaSetSlider = observer((props = {}) => {
