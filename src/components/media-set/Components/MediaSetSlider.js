@@ -2,7 +2,7 @@ import { runInAction } from 'mobx';
 import { observer } from 'mobx-react';
 import React, { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
-import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
+// import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
 import classNames from 'classnames';
 
@@ -183,7 +183,7 @@ export const MediaSetSlider = observer((props = {}) => {
 						sliderClassName,
 					)}
 				>
-					{isOn('PRODUCT_PAGE_FULL_SCREEN_MODAL_ALLOW_ZOOM') && allowPinchZoom
+					{/* {isOn('PRODUCT_PAGE_FULL_SCREEN_MODAL_ALLOW_ZOOM') && allowPinchZoom
 						? <TransformWrapper
 							disabled={!allowPinchZoom}
 							panning={{ disabled: canSliderPan }} // if slider can pan then individual image shouldn't be able to, and vise versa
@@ -224,7 +224,7 @@ export const MediaSetSlider = observer((props = {}) => {
 							showDimensions={showDimensions}
 							showDriftZoom={showDriftZoom}
 						/>
-					}
+					} */}
 					{/* Turned off counter for MediaMain component and placed one here for this instance to A) keep count in same place despite zoom and B) keep original styling */}
 					<MediaMainCounter
 						className={counterClassName}

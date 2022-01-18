@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
 
 // import { useProductContext } from 'product/SharedProduct.context';
-// import { MediaControlCylindo } from './MediaControlCylindo';
-// import { MediaControlFullscreenClose, MediaControlFullscreenOpen } from 'components/media-set/Components/MediaControlFullscreen';
-// import { MediaCylindo } from './MediaControlCylindo';
+import { MediaControlCylindo } from './MediaControlCylindo';
+import { MediaControlFullscreenClose, MediaControlFullscreenOpen } from 'components/media-set/Components/MediaControlFullscreen';
+import { MediaCylindo } from 'components/media-set/Components/MediaCylindo';
 import { MediaSet } from './MediaSet';
 // import {
 // 	mediaSetDetailFullscreenProps,
@@ -34,39 +34,39 @@ export const MediaSetDetail = observer((props) => {
 	};
 
 	// unbox selectedMediaIndex at initialization time - we don't want initialSlide prop to be observable
-	// const {
-	// 	mediaCylindoModel = {},
-	// 	mediaCylindoStore = {},
-	// 	mediaSetDetailModel = {},
-	// 	mediaSetDetailModel: {
-	// 		hasMediaModels = false,
-	// 		selectedMediaIndex = 0,
-	// 	} = {},
-	// 	mediaSetDetailStore = {},
-	// 	productCommons: {
-	// 		printModule = {}
-	// 	},
-	// 	productGroupModel: {
-	// 		name: groupName,
-	// 	} = {},
-	// 	productModel: {
-	// 		longSalesText: productName,
-	// 		salesText: shortProductName,
-	// 	} = {},
-	// 	styliticsModel: {
-	// 		styliticsWidgetDidLoad,
-	// 		styliticsId,
-	// 		styliticsSku,
-	// 		styliticsWidgetIsHidden,
-	// 	} = {},
-	// } = useProductContext();
+	const {
+		mediaCylindoModel = {},
+		mediaCylindoStore = {},
+		mediaSetDetailModel = {},
+		mediaSetDetailModel: {
+			hasMediaModels = false,
+			selectedMediaIndex = 0,
+		} = {},
+		mediaSetDetailStore = {},
+		productCommons: {
+			printModule = {}
+		},
+		productGroupModel: {
+			name: groupName,
+		} = {},
+		productModel: {
+			longSalesText: productName,
+			salesText: shortProductName,
+		} = {},
+		styliticsModel: {
+			styliticsWidgetDidLoad,
+			styliticsId,
+			styliticsSku,
+			styliticsWidgetIsHidden,
+		} = {},
+	} = {};
 
 	// if (!hasMediaModels) {
 	// 	return null;
 	// }
 
-	// const mediaControlFullscreenRef = useRef();
-	// const jumpLinkRef = useRef();
+	const mediaControlFullscreenRef = useRef();
+	const jumpLinkRef = useRef();
 
 	// const scrollToID = (event) => {
 	// 	event.preventDefault(); // prevent default anchor tag onclick scroll behavior
@@ -80,19 +80,19 @@ export const MediaSetDetail = observer((props) => {
 	// 	}
 	// };
 
-	// const mediaSetOverrideBeforeChange = (mediaSetState) => {
-	// 	const { nextIndex = null } = mediaSetState;
+	const mediaSetOverrideBeforeChange = (mediaSetState) => {
+		const { nextIndex = null } = mediaSetState;
 
-	// 	if (jumpLinkRef.current) {
-	// 		// on mobile, only the first slide should have the jumpLink
-	// 		jumpLinkRef.current.className = classNames(styles['stylitics-jump-link'], { [styles['mobile-hidden']]: nextIndex !== 0 });
-	// 	}
-	// 	if (mediaCylindoStore.setIsCylindoActive) {
-	// 		mediaCylindoStore.setIsCylindoActive(false);
-	// 	}
+		if (jumpLinkRef.current) {
+			// on mobile, only the first slide should have the jumpLink
+			jumpLinkRef.current.className = classNames(styles['stylitics-jump-link'], { [styles['mobile-hidden']]: nextIndex !== 0 });
+		}
+		if (mediaCylindoStore.setIsCylindoActive) {
+			mediaCylindoStore.setIsCylindoActive(false);
+		}
 
-	// 	mediaSetDetailStore.setIsMediaSetOverrideActive(false);
-	// };
+		mediaSetDetailStore.setIsMediaSetOverrideActive(false);
+	};
 
 	// const mediaControlsFullscreen = (
 	// 	<>
@@ -115,65 +115,65 @@ export const MediaSetDetail = observer((props) => {
 	// 	/>
 	// );
 
-	// const openFullScreenModal = () => {
-	// 	// unbox selectedMediaIndex at initialization time - we don't want initialSlide prop to be observable
-	// 	const { selectedMediaIndex: selectedMediaIndexFullscreen = 0 } = mediaSetDetailModel;
-	// 	if (!window.matchMedia(openModalMediaCriteria).matches) { // remove openModalMediaCriteria when removing PRODUCT_PAGE_FULL_SCREEN_MODAL_ALLOW_ZOOM (if there are no other instances of use)
-	// 		magicModal.openModal({
-	// 			...mediaSetModalSettings,
-	// 			alignToTopOfWindow: true,
-	// 			content: {
-	// 				children: (
-	// 					<div
-	// 						className={styles['media-set-detail-fullscreen']}
-	// 						data-qa="media-set-detail-fullscreen"
-	// 					>
-	// 						<MediaSet
-	// 							{...mediaSetDetailFullscreenProps}
-	// 							allowPinchZoom={true}
-	// 							initialSlide={selectedMediaIndexFullscreen}
-	// 							mediaControls={mediaControlsFullscreen}
-	// 							mediaSetModel={mediaSetDetailModel}
-	// 							mediaSetOverride={mediaSetOverrideFullscreen}
-	// 							mediaSetOverrideBeforeChange={mediaSetOverrideBeforeChange}
-	// 							mediaSetStore={mediaSetDetailStore}
-	// 							showDots= {!window.matchMedia(openModalMediaCriteria).matches}
-	// 							showArrowsForSmall={true}
-	// 							trLinkEventCompName={groupName || productName || shortProductName}
-	// 						/>
-	// 					</div>
-	// 				),
-	// 			},
-	// 		});
-	// 	}
-	// };
+	const openFullScreenModal = () => {
+		// unbox selectedMediaIndex at initialization time - we don't want initialSlide prop to be observable
+		const { selectedMediaIndex: selectedMediaIndexFullscreen = 0 } = mediaSetDetailModel;
+		// if (!window.matchMedia(openModalMediaCriteria).matches) { // remove openModalMediaCriteria when removing PRODUCT_PAGE_FULL_SCREEN_MODAL_ALLOW_ZOOM (if there are no other instances of use)
+		// 	magicModal.openModal({
+		// 		...mediaSetModalSettings,
+		// 		alignToTopOfWindow: true,
+		// 		content: {
+		// 			children: (
+		// 				<div
+		// 					className={styles['media-set-detail-fullscreen']}
+		// 					data-qa="media-set-detail-fullscreen"
+		// 				>
+		// 					<MediaSet
+		// 						{...mediaSetDetailFullscreenProps}
+		// 						allowPinchZoom={true}
+		// 						initialSlide={selectedMediaIndexFullscreen}
+		// 						mediaControls={mediaControlsFullscreen}
+		// 						mediaSetModel={mediaSetDetailModel}
+		// 						mediaSetOverride={mediaSetOverrideFullscreen}
+		// 						mediaSetOverrideBeforeChange={mediaSetOverrideBeforeChange}
+		// 						mediaSetStore={mediaSetDetailStore}
+		// 						showDots= {!window.matchMedia(openModalMediaCriteria).matches}
+		// 						showArrowsForSmall={true}
+		// 						trLinkEventCompName={groupName || productName || shortProductName}
+		// 					/>
+		// 				</div>
+		// 			),
+		// 		},
+		// 	});
+		// }
+	};
 
-	// const mediaControls = (
-	// 	<>
-	// 		<MediaControlCylindo
-	// 			mediaSetStore={mediaSetDetailStore}
-	// 			mediaCylindoStore={mediaCylindoStore}
-	// 			mediaCylindoModel={mediaCylindoModel}
-	// 		/>
-	// 		<MediaControlFullscreenOpen
-	// 			buttonRef={mediaControlFullscreenRef}
-	// 			hideForSmall={true}
-	// 			onClick={openFullScreenModal}
-	// 		/>
-	// 	</>
-	// );
+	const mediaControls = (
+		<>
+			<MediaControlCylindo
+				mediaSetStore={mediaSetDetailStore}
+				mediaCylindoStore={mediaCylindoStore}
+				mediaCylindoModel={mediaCylindoModel}
+			/>
+			<MediaControlFullscreenOpen
+				buttonRef={mediaControlFullscreenRef}
+				hideForSmall={true}
+				onClick={openFullScreenModal}
+			/>
+		</>
+	);
 
-	// const mediaSetOverride = (
-	// 	<>
-	// 		{
-	// 			!hideMediaCylindo && (
-	// 				<MediaCylindo
-	// 					mediaCylindoModel={mediaCylindoModel}
-	// 				/>
-	// 			)
-	// 		}
-	// 	</>
-	// );
+	const mediaSetOverride = (
+		<>
+			{
+				!hideMediaCylindo && (
+					<MediaCylindo
+						mediaCylindoModel={mediaCylindoModel}
+					/>
+				)
+			}
+		</>
+	);
 
 	return (
 		<div
@@ -198,7 +198,7 @@ export const MediaSetDetail = observer((props) => {
 					</div>
 
 				}
-				initialSlide={selectedMediaIndex}
+				initialSlide={0}
 				mediaControls={mediaControls}
 				mediaMainOnClick={openFullScreenModal}
 				mediaSetModel={mediaSetDetailModel}
