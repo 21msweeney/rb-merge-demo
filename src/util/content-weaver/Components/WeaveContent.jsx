@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-import { GetUrlContent } from '~/util/content-weaver/Components/GetUrlContent';
+import { GetUrlContent } from 'util/content-weaver/Components/GetUrlContent';
 
 export const WeaveContent = observer((props) => {
 	if (!props || props.shouldRender === false) {

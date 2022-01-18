@@ -1,5 +1,5 @@
 import { FullScreenModal } from 'components/MagicModal/Components/FullScreenModal';
-import styles from '#/media-set/media-set.module.scss';
+import styles from 'components/media-set/Components/media-set.module.scss';
 
 export const openModalMediaCriteria = '(max-width: 40em)';
 

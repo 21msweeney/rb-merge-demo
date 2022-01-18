@@ -25,10 +25,6 @@ export const MagicVimeoPlayer = (props) => {
 		} = {},
 	} = useGlobalContext();
 
-	if (isOnServer || window.Cypress) {
-		return null;
-	}
-
 	const instanceId = `magic-vimeo-player-${id}`;
 
 	const vimeoPlayerRef = useRef();

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { observer } from 'mobx-react';
 import { fromPromise } from 'mobx-utils';
 import axios from 'axios';
-import { isFunction } from '~/util/isFunction';
+import { isFunction } from 'util/isFunction';
 
-import { addToUrl } from '~/util/addToUrl';
-import { LoadingSpinner } from '~/util/Components/LoadingSpinner';
+import { addToUrl } from 'util/addToUrl';
+import { LoadingSpinner } from 'components/LoadingSpinner/LoadingSpinner';
 
 export const GetUrlContent = observer((props) => {
 	const urlToGet = addToUrl(props.urlToGet, 'decorator=nowrap');

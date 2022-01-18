@@ -1,7 +1,5 @@
-import getConfig from 'next/config';
-
 export const isOnServer = typeof window === 'undefined';
-const { publicRuntimeConfig = {} } = getConfig();
+const publicRuntimeConfig = {};
 
 const globals = {
 	adobeLaunchUrl: publicRuntimeConfig.adobeLaunch?.url || '',

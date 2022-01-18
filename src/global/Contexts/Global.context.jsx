@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from 'react';
-import { MagicModalModel } from '../MagicModal/MagicModal.model';
-import { MagicModalStore } from '../MagicModal/MagicModal.store';
+import { MagicModalModel } from 'components/MagicModal/MagicModal.model';
+import { MagicModalStore } from 'components/MagicModal/MagicModal.store';
 
 const globalContext = createContext();
 
