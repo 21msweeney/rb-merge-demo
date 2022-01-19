@@ -84,7 +84,7 @@ export const LegacyModalContent = observer((props) => {
 export const LegacyModal = observer((props) => {
 	const {
 		magicModal,
-		pageStore,
+		pageStore = {},
 	} = useGlobalContext();
 	const { closeModal } = magicModal;
 	const {
@@ -108,7 +108,7 @@ export const LegacyModal = observer((props) => {
 		'legacy-modal-anchor-bottom': anchorBottom,
 		'legacy-modal-drop-shadow': dropShadow,
 		'legacy-modal-full-bleed': fullBleed,
-		'legacy-modal-mobile': !pageStore.isMediaQueryMd,
+		'legacy-modal-mobile': !pageStore?.isMediaQueryMd,
 		'legacy-modal-no-close-button': !showCloseButton,
 		'legacy-modal-no-side-margin': flushSides,
 		'legacy-modal-no-title': !title || !showHeader,
@@ -132,7 +132,7 @@ export const LegacyModal = observer((props) => {
 
 	return (
 		<div {...modalAttrs}>
-			<div className={classNames('modal-header', { 'modal-mobile': !pageStore.isMediaQueryMd })}>
+			<div className={classNames('modal-header', { 'modal-mobile': !pageStore?.isMediaQueryMd })}>
 				{
 					showCloseButton &&
 					<button

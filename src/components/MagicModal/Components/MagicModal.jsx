@@ -15,27 +15,26 @@ import { useGlobalContext } from 'global/Contexts/Global.context';
 
 export const MagicModal = observer((props) => {
 	const {
-		test,
+		magicModal,
 	} = useGlobalContext();
-	// const {
-	// 	model,
-	// 	closeModal,
-	// 	model: {
-	// 		closeModalOnEscKey,
-	// 		closeModalOnOverlayClick,
-	// 		containerClass,
-	// 		id,
-	// 		isLoading,
-	// 		isOpen,
-	// 		onOverlayClick,
-	// 		showOverlay,
-	// 		useLegacyWrapper,
-	// 		WrapperComponent,
-	// 		modalClassName,
-	// 	},
-	// } = magicModal;
 
-	console.log(test)
+	const {
+		model,
+		closeModal,
+		model: {
+			closeModalOnEscKey,
+			closeModalOnOverlayClick,
+			containerClass,
+			id,
+			isLoading,
+			isOpen,
+			onOverlayClick,
+			showOverlay,
+			useLegacyWrapper,
+			WrapperComponent,
+			modalClassName,
+		},
+	} = magicModal;
 
 	const onKeyupHandler = (e) => {
 		if (e.keyCode !== 27) {

@@ -14,7 +14,6 @@ import {
 	mediaSetModalSettings,
 	openModalMediaCriteria,
 } from 'components/media-set/helpers/media-set.constants';
-
 import { MagicModal } from 'components/MagicModal/Components/MagicModal';
 import { useGlobalContext } from 'global/Contexts/Global.context';
 
@@ -124,16 +123,6 @@ export const MediaSetDetail = observer((props) => {
 	// 	mediaSetDetailStore.setIsMediaSetOverrideActive(false);
 	// };
 
-	// const mediaControlsFullscreen = (
-	// 	<>
-	// 		<MediaControlCylindo
-	// 			mediaSetStore={mediaSetDetailStore}
-	// 			mediaCylindoStore={mediaCylindoStore}
-	// 			mediaCylindoModel={mediaCylindoModel}
-	// 		/>
-	// 		<MediaControlFullscreenClose onClick={magicModal.closeModal} />
-	// 	</>
-	// );
 
 	// const mediaSetOverrideFullscreen = (
 	// 	<MediaCylindo
@@ -152,7 +141,7 @@ export const MediaSetDetail = observer((props) => {
 				mediaCylindoStore={mediaCylindoStore}
 				mediaCylindoModel={mediaCylindoModel}
 			/>
-			{/* <MediaControlFullscreenClose onClick={magicModal.closeModal} /> */}
+			<MediaControlFullscreenClose onClick={magicModal.closeModal} />
 		</>
 	);
 
@@ -169,7 +158,7 @@ export const MediaSetDetail = observer((props) => {
 
 	const openFullScreenModal = () => {
 		// unbox selectedMediaIndex at initialization time - we don't want initialSlide prop to be observable
-		const { selectedMediaIndex: selectedMediaIndexFullscreen = 0 } = mediaSetDetailModel;
+		const { selectedMediaIndex: selectedMediaIndexFullscreen = 0 } = detailModel;
 		magicModal.openModal({
 			...mediaSetModalSettings,
 			alignToTopOfWindow: true,
@@ -184,7 +173,7 @@ export const MediaSetDetail = observer((props) => {
 							allowPinchZoom={true}
 							initialSlide={selectedMediaIndexFullscreen}
 							mediaControls={mediaControlsFullscreen}
-							mediaSetModel={mediaSetDetailModel}
+							mediaSetModel={detailModel}
 							mediaSetOverride={mediaSetOverrideFullscreen}
 							// mediaSetOverrideBeforeChange={mediaSetOverrideBeforeChange}
 							mediaSetStore={mediaSetDetailStore}

@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import { action, observable, makeObservable, makeAutoObservable } from 'mobx';
 
 import { isFunction } from 'util/isFunction';
@@ -6,7 +6,18 @@ import { isFocusable } from 'util/isFocusable';
 
 class MagicModalStore {
 	constructor(linkEventStore = {}) {
-		// makeObservable(this, {
+		makeObservable(this, {
+			alterModal: action.bound,
+			// model: observable,
+			closeModal: action.bound,
+			openModal: action.bound,
+			resetModal: action.bound,
+			scrollToTop: action.bound,
+			setIsLoading: action.bound,
+			getClosestFocusableParent: action.bound
+		});
+		// this.linkEventStore = linkEventStore;
+		// makeAutoObservable(this, {
 		// 	alterModal: action.bound,
 		// 	model: observable.ref,
 		// 	closeModal: action.bound,
@@ -16,8 +27,6 @@ class MagicModalStore {
 		// 	setIsLoading: action.bound,
 		// 	getClosestFocusableParent: action.bound
 		// });
-		// this.linkEventStore = linkEventStore;
-		makeAutoObservable(this);
 	}
 
 	alterModal(modalSettings) {

@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import 'lib/mobx.config';
 
 import { breadcrumbModels } from './components/Breadcrumb/Breadcrumbs.data';
 import { Breadcrumbs } from './components/Breadcrumb/Breadcrumbs';
