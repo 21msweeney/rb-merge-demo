@@ -58,11 +58,11 @@ export const MediaSetSlider = observer((props = {}) => {
 		touchMove = true,
 	} = props;
 
-	const {
-		featureTogglesModel: {
-			isOn = () => { },
-		} = {},
-	} = useGlobalContext();
+	// const {
+	// 	featureTogglesModel: {
+	// 		isOn = () => { },
+	// 	} = {},
+	// } = useGlobalContext();
 
 	const didInitializeRef = useRef(false);
 	const mediaSetRef = useRef();
@@ -224,7 +224,22 @@ export const MediaSetSlider = observer((props = {}) => {
 							showDimensions={showDimensions}
 							showDriftZoom={showDriftZoom}
 						/>
+
 					} */}
+					<MediaMain
+							allowPinchZoom={allowPinchZoom}
+							hideCounter={true}
+							hideMediaMainLinks={hideMediaMainLinks}
+							mainHeight={mainHeight}
+							mainWidth={mainWidth}
+							mediaComponentsOverride={mediaComponentsOverride}
+							mediaModel={mediaModel}
+							mediaSetModel={mediaSetModel}
+							onClick={mediaMainOnClick}
+							showCounterForMedium={showCounterForMedium}
+							showDimensions={showDimensions}
+							showDriftZoom={showDriftZoom}
+						/>
 					{/* Turned off counter for MediaMain component and placed one here for this instance to A) keep count in same place despite zoom and B) keep original styling */}
 					<MediaMainCounter
 						className={counterClassName}

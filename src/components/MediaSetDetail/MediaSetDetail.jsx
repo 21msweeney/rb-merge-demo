@@ -7,22 +7,54 @@ import { MediaControlCylindo } from './MediaControlCylindo';
 import { MediaControlFullscreenClose, MediaControlFullscreenOpen } from 'components/media-set/Components/MediaControlFullscreen';
 import { MediaCylindo } from 'components/media-set/Components/MediaCylindo';
 import { MediaSet } from './MediaSet';
+import { createMediaSetModel } from 'components/media-set/helpers/MediaSet.init';
 // import {
 // 	mediaSetDetailFullscreenProps,
 // 	mediaSetDetailProps,
 // 	mediaSetModalSettings,
 // 	openModalMediaCriteria,
 // } from '~/product/common/media-set/media-set.constants';
-import { useGlobalContext } from 'global/Contexts/Global.context';
+
+import { MagicModalModel } from 'components/MagicModal/MagicModal.model';
+import { MagicModalStore } from 'components/MagicModal/MagicModal.store';
 
 import styles from './media-set-detail.module.scss';
+
+const mediaSetData = [
+	{
+		fileName: 'cade_232079_s1_16',
+		type: 'IMAGE',
+	},
+	{
+		fileName: 'cade_907266_CR_s1_18',
+		type: 'IMAGE',
+	},
+	{
+		fileName: 'andre_024463_s1_14',
+		type: 'IMAGE',
+	},
+	{
+		fileName: 'andre_798202_20e',
+		type: 'IMAGE',
+	},
+];
+
 
 export const MediaSetDetail = observer((props) => {
 	const { hideMediaCylindo = false } = props;
 
-	const {
-		magicModal
-	} = useGlobalContext();
+	const magicModal = new MagicModalStore();
+	magicModal.model = new MagicModalModel();
+
+	const mediaData = mediaSetData.map((imageData) => {
+		return {
+			...imageData,
+			hasCaption: true,
+			caption: 'Example caption, please remember to Stay Awesome.',
+		}
+	});
+
+	const detailModel = createMediaSetModel({ mediaSetData: mediaData });
 
 	const mediaSetDetailProps = {
 		numDotsToShow: 7,
@@ -30,7 +62,6 @@ export const MediaSetDetail = observer((props) => {
 		mainWidth: 675,
 		showArrowsForMedium: true,
 		showDimensions: true,
-		trLinkEventCompType: 'product details media viewer',
 	};
 
 	// unbox selectedMediaIndex at initialization time - we don't want initialSlide prop to be observable
@@ -45,7 +76,7 @@ export const MediaSetDetail = observer((props) => {
 		mediaSetDetailStore = {},
 		productCommons: {
 			printModule = {}
-		},
+		} = {},
 		productGroupModel: {
 			name: groupName,
 		} = {},
@@ -80,19 +111,19 @@ export const MediaSetDetail = observer((props) => {
 	// 	}
 	// };
 
-	const mediaSetOverrideBeforeChange = (mediaSetState) => {
-		const { nextIndex = null } = mediaSetState;
+	// const mediaSetOverrideBeforeChange = (mediaSetState) => {
+	// 	const { nextIndex = null } = mediaSetState;
 
-		if (jumpLinkRef.current) {
-			// on mobile, only the first slide should have the jumpLink
-			jumpLinkRef.current.className = classNames(styles['stylitics-jump-link'], { [styles['mobile-hidden']]: nextIndex !== 0 });
-		}
-		if (mediaCylindoStore.setIsCylindoActive) {
-			mediaCylindoStore.setIsCylindoActive(false);
-		}
+	// 	if (jumpLinkRef.current) {
+	// 		// on mobile, only the first slide should have the jumpLink
+	// 		jumpLinkRef.current.className = classNames(styles['stylitics-jump-link'], { [styles['mobile-hidden']]: nextIndex !== 0 });
+	// 	}
+	// 	if (mediaCylindoStore.setIsCylindoActive) {
+	// 		mediaCylindoStore.setIsCylindoActive(false);
+	// 	}
 
-		mediaSetDetailStore.setIsMediaSetOverrideActive(false);
-	};
+	// 	mediaSetDetailStore.setIsMediaSetOverrideActive(false);
+	// };
 
 	// const mediaControlsFullscreen = (
 	// 	<>
@@ -117,7 +148,7 @@ export const MediaSetDetail = observer((props) => {
 
 	const openFullScreenModal = () => {
 		// unbox selectedMediaIndex at initialization time - we don't want initialSlide prop to be observable
-		const { selectedMediaIndex: selectedMediaIndexFullscreen = 0 } = mediaSetDetailModel;
+		// const { selectedMediaIndex: selectedMediaIndexFullscreen = 0 } = mediaSetDetailModel;
 		// if (!window.matchMedia(openModalMediaCriteria).matches) { // remove openModalMediaCriteria when removing PRODUCT_PAGE_FULL_SCREEN_MODAL_ALLOW_ZOOM (if there are no other instances of use)
 		// 	magicModal.openModal({
 		// 		...mediaSetModalSettings,
@@ -150,35 +181,35 @@ export const MediaSetDetail = observer((props) => {
 
 	const mediaControls = (
 		<>
-			<MediaControlCylindo
+			{/* <MediaControlCylindo
 				mediaSetStore={mediaSetDetailStore}
 				mediaCylindoStore={mediaCylindoStore}
 				mediaCylindoModel={mediaCylindoModel}
-			/>
+			/> */}
 			<MediaControlFullscreenOpen
 				buttonRef={mediaControlFullscreenRef}
 				hideForSmall={true}
-				onClick={openFullScreenModal}
+				// onClick={openFullScreenModal}
 			/>
 		</>
 	);
 
-	const mediaSetOverride = (
-		<>
-			{
-				!hideMediaCylindo && (
-					<MediaCylindo
-						mediaCylindoModel={mediaCylindoModel}
-					/>
-				)
-			}
-		</>
-	);
+	// const mediaSetOverride = (
+	// 	<>
+	// 		{
+	// 			!hideMediaCylindo && (
+	// 				<MediaCylindo
+	// 					mediaCylindoModel={mediaCylindoModel}
+	// 				/>
+	// 			)
+	// 		}
+	// 	</>
+	// );
 
 	return (
 		<div
 			aria-label="Product detail media carousel"
-			// className={`${styles['media-set-detail']} ${printModule['print-media-set-detail']}`}
+			className={`${styles['media-set-detail']} ${printModule['print-media-set-detail']}`}
 			data-qa="media-set-detail"
 			role="region"
 		>
@@ -201,11 +232,10 @@ export const MediaSetDetail = observer((props) => {
 				initialSlide={0}
 				mediaControls={mediaControls}
 				mediaMainOnClick={openFullScreenModal}
-				mediaSetModel={mediaSetDetailModel}
-				mediaSetOverride={mediaSetOverride}
-				mediaSetOverrideBeforeChange={mediaSetOverrideBeforeChange}
+				mediaSetModel={detailModel}
+				// mediaSetOverride={mediaSetOverride}
+				// mediaSetOverrideBeforeChange={mediaSetOverrideBeforeChange}
 				mediaSetStore={mediaSetDetailStore}
-				trLinkEventCompName={groupName || productName || shortProductName}
 				variant="Product Detail"
 			/>
 		</div>

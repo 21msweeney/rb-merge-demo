@@ -8,10 +8,12 @@ import { MediaSetDetail } from './components/MediaSetDetail/MediaSetDetail';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App tw-p-8">
+		<p className='tw-text-left tw-font-bold'>Breadcrumb:</p>
 		<Breadcrumbs model={breadcrumbModels} />
+		<p className='tw-text-left tw-font-bold tw-mt-10'>Media Set Detail:</p>
 		<MediaSetDetail />
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -24,7 +26,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }

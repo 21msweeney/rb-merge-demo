@@ -1,4 +1,4 @@
-import { computed, observable, makeObservable } from 'mobx';
+import { computed, observable, makeObservable, makeAutoObservable } from 'mobx';
 
 import { isNumber } from 'util/isNumber';
 
@@ -91,39 +91,40 @@ export class MagicModalModel {
 	}
 
 	constructor() {
-		makeObservable(this, {
-			absoluteScrollTop: observable,
-			alignToTopOfWindow: observable,
-			accessibleTitle: observable,
-			anchorBottom: observable,
-			closeButtonText: observable,
-			closeModalOnOverlayClick: observable,
-			closeModalOnEscKey: observable,
-			containerClass: observable,
-			dropShadow: observable,
-			flushSides: observable,
-			fullBleed: observable,
-			height: observable,
-			id: observable,
-			initialScrollTop: observable,
-			isLoading: observable,
-			isOpen: observable,
-			keepScrollPosition: observable,
-			onOverlayClick: observable,
-			onCloseModal: observable,
-			onCloseFocusElement: observable,
-			reverseCloseButton: observable,
-			showCloseButton: observable,
-			showOverlay: observable,
-			title: observable,
-			width: observable,
-			maxWidth: observable,
-			WrapperComponent: observable,
-			content: observable.ref,
-			heightOutput: computed,
-			marginTop: computed,
-			widthOutput: computed,
-		});
+		// makeObservable(this, {
+		// 	absoluteScrollTop: observable,
+		// 	alignToTopOfWindow: observable,
+		// 	accessibleTitle: observable,
+		// 	anchorBottom: observable,
+		// 	closeButtonText: observable,
+		// 	closeModalOnOverlayClick: observable,
+		// 	closeModalOnEscKey: observable,
+		// 	containerClass: observable,
+		// 	dropShadow: observable,
+		// 	flushSides: observable,
+		// 	fullBleed: observable,
+		// 	height: observable,
+		// 	id: observable,
+		// 	initialScrollTop: observable,
+		// 	isLoading: observable,
+		// 	isOpen: observable,
+		// 	keepScrollPosition: observable,
+		// 	onOverlayClick: observable,
+		// 	onCloseModal: observable,
+		// 	onCloseFocusElement: observable,
+		// 	reverseCloseButton: observable,
+		// 	showCloseButton: observable,
+		// 	showOverlay: observable,
+		// 	title: observable,
+		// 	width: observable,
+		// 	maxWidth: observable,
+		// 	WrapperComponent: observable,
+		// 	content: observable.ref,
+		// 	heightOutput: computed,
+		// 	marginTop: computed,
+		// 	widthOutput: computed,
+		// });
+		makeAutoObservable(this);
 
 		Object.assign(this, this.defaults);
 	}
