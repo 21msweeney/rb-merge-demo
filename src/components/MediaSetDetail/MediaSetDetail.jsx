@@ -8,15 +8,15 @@ import { MediaControlFullscreenClose, MediaControlFullscreenOpen } from 'compone
 import { MediaCylindo } from 'components/media-set/Components/MediaCylindo';
 import { MediaSet } from './MediaSet';
 import { createMediaSetModel } from 'components/media-set/helpers/MediaSet.init';
-// import {
-// 	mediaSetDetailFullscreenProps,
-// 	mediaSetDetailProps,
-// 	mediaSetModalSettings,
-// 	openModalMediaCriteria,
-// } from '~/product/common/media-set/media-set.constants';
+import {
+	mediaSetDetailFullscreenProps,
+	mediaSetDetailProps,
+	mediaSetModalSettings,
+	openModalMediaCriteria,
+} from 'components/media-set/helpers/media-set.constants';
 
-import { MagicModalModel } from 'components/MagicModal/MagicModal.model';
-import { MagicModalStore } from 'components/MagicModal/MagicModal.store';
+import { MagicModal } from 'components/MagicModal/Components/MagicModal';
+import { useGlobalContext } from 'global/Contexts/Global.context';
 
 import styles from './media-set-detail.module.scss';
 
@@ -43,8 +43,9 @@ const mediaSetData = [
 export const MediaSetDetail = observer((props) => {
 	const { hideMediaCylindo = false } = props;
 
-	const magicModal = new MagicModalStore();
-	magicModal.model = new MagicModalModel();
+	const {
+		magicModal,
+	} = useGlobalContext();
 
 	const mediaData = mediaSetData.map((imageData) => {
 		return {
@@ -55,6 +56,7 @@ export const MediaSetDetail = observer((props) => {
 	});
 
 	const detailModel = createMediaSetModel({ mediaSetData: mediaData });
+
 
 	const mediaSetDetailProps = {
 		numDotsToShow: 7,
@@ -92,9 +94,6 @@ export const MediaSetDetail = observer((props) => {
 		} = {},
 	} = {};
 
-	// if (!hasMediaModels) {
-	// 	return null;
-	// }
 
 	const mediaControlFullscreenRef = useRef();
 	const jumpLinkRef = useRef();
@@ -146,50 +145,71 @@ export const MediaSetDetail = observer((props) => {
 	// 	/>
 	// );
 
+	const mediaControlsFullscreen = (
+		<>
+			<MediaControlCylindo
+				mediaSetStore={mediaSetDetailStore}
+				mediaCylindoStore={mediaCylindoStore}
+				mediaCylindoModel={mediaCylindoModel}
+			/>
+			{/* <MediaControlFullscreenClose onClick={magicModal.closeModal} /> */}
+		</>
+	);
+
+	const mediaSetOverrideFullscreen = (
+		<MediaCylindo
+			mediaCylindoId="media-cylindo-fullscreen"
+			tooltipDragText="Drag to rotate. Click to zoom."
+			tooltipZoomText="Move mouse to pan"
+			mediaCylindoModel={mediaCylindoModel}
+			zoom={true}
+			forceLoad={true}
+		/>
+	);
+
 	const openFullScreenModal = () => {
 		// unbox selectedMediaIndex at initialization time - we don't want initialSlide prop to be observable
-		// const { selectedMediaIndex: selectedMediaIndexFullscreen = 0 } = mediaSetDetailModel;
-		// if (!window.matchMedia(openModalMediaCriteria).matches) { // remove openModalMediaCriteria when removing PRODUCT_PAGE_FULL_SCREEN_MODAL_ALLOW_ZOOM (if there are no other instances of use)
-		// 	magicModal.openModal({
-		// 		...mediaSetModalSettings,
-		// 		alignToTopOfWindow: true,
-		// 		content: {
-		// 			children: (
-		// 				<div
-		// 					className={styles['media-set-detail-fullscreen']}
-		// 					data-qa="media-set-detail-fullscreen"
-		// 				>
-		// 					<MediaSet
-		// 						{...mediaSetDetailFullscreenProps}
-		// 						allowPinchZoom={true}
-		// 						initialSlide={selectedMediaIndexFullscreen}
-		// 						mediaControls={mediaControlsFullscreen}
-		// 						mediaSetModel={mediaSetDetailModel}
-		// 						mediaSetOverride={mediaSetOverrideFullscreen}
-		// 						mediaSetOverrideBeforeChange={mediaSetOverrideBeforeChange}
-		// 						mediaSetStore={mediaSetDetailStore}
-		// 						showDots= {!window.matchMedia(openModalMediaCriteria).matches}
-		// 						showArrowsForSmall={true}
-		// 						trLinkEventCompName={groupName || productName || shortProductName}
-		// 					/>
-		// 				</div>
-		// 			),
-		// 		},
-		// 	});
-		// }
+		const { selectedMediaIndex: selectedMediaIndexFullscreen = 0 } = mediaSetDetailModel;
+		magicModal.openModal({
+			...mediaSetModalSettings,
+			alignToTopOfWindow: true,
+			content: {
+				children: (
+					<div
+						className={styles['media-set-detail-fullscreen']}
+						data-qa="media-set-detail-fullscreen"
+					>
+						<MediaSet
+							{...mediaSetDetailFullscreenProps}
+							allowPinchZoom={true}
+							initialSlide={selectedMediaIndexFullscreen}
+							mediaControls={mediaControlsFullscreen}
+							mediaSetModel={mediaSetDetailModel}
+							mediaSetOverride={mediaSetOverrideFullscreen}
+							// mediaSetOverrideBeforeChange={mediaSetOverrideBeforeChange}
+							mediaSetStore={mediaSetDetailStore}
+							showDots= {!window.matchMedia(openModalMediaCriteria).matches}
+							showArrowsForSmall={true}
+							trLinkEventCompName={groupName || productName || shortProductName}
+						/>
+					</div>
+				),
+			},
+		});
+
 	};
 
 	const mediaControls = (
 		<>
-			{/* <MediaControlCylindo
+			<MediaControlCylindo
 				mediaSetStore={mediaSetDetailStore}
 				mediaCylindoStore={mediaCylindoStore}
 				mediaCylindoModel={mediaCylindoModel}
-			/> */}
+			/>
 			<MediaControlFullscreenOpen
 				buttonRef={mediaControlFullscreenRef}
 				hideForSmall={true}
-				// onClick={openFullScreenModal}
+				onClick={openFullScreenModal}
 			/>
 		</>
 	);
@@ -238,6 +258,7 @@ export const MediaSetDetail = observer((props) => {
 				mediaSetStore={mediaSetDetailStore}
 				variant="Product Detail"
 			/>
+			<MagicModal />
 		</div>
 	);
 });
