@@ -10,7 +10,7 @@ import { MediaSetDetail } from './components/MediaSetDetail/MediaSetDetail';
 function App() {
   return (
 	  <GlobalContextProvider>
-		  <div className="App tw-p-8">
+		  <div className="App tw-p-8 tw-relative">
 			  <p className='tw-text-left tw-font-bold'>Breadcrumb:</p>
 			  <Breadcrumbs model={breadcrumbModels} />
 			  <p className='tw-text-left tw-font-bold tw-mt-10'>Media Set Detail:</p>

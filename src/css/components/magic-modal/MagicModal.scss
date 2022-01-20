@@ -1,0 +1,57 @@
+.MagicModal {
+	$closeBtnSize: 32px;
+
+	@apply bg-white relative mx-auto;
+	max-width: calc(100vw - 20px);
+	width: calc(100vw - 20px);
+	padding: 30px 15px;
+	z-index: 500;
+	.MagicModal-header {
+		@apply flex justify-end;
+		margin: 0 0 25px;
+	}
+	.MagicModal-title {
+		@apply relative flex-grow;
+		top: -5px;
+	}
+	.MagicModal-closeBtnWrapper {
+		@apply relative flex-shrink-0;
+		height: 22px;
+		width: 22px;
+		margin: 0 0 0 $closeBtnSize;
+	}
+	.MagicModal-closeBtn {
+		@apply absolute top-0 right-0 w-full h-full cursor-pointer;
+
+		&::before,
+		&::after {
+			@apply bg-gray-300 absolute top-0 left-0;
+			content: '';
+		}
+
+		&::before {
+			height: $closeBtnSize;
+			transform: rotate(45deg) translate(4px, -11px);
+			width: 1px;
+		}
+
+		&::after {
+			height: 1px;
+			transform: rotate(45deg) translate(4px, 11px);
+			width: $closeBtnSize;
+		}
+		// For specificity
+		&.MagicModal-closeBtn:focus {
+			@apply shadow-none;
+			outline: 1px dotted theme('colors.gray.300');
+			outline-offset: 8px;
+		}
+	}
+}
+
+@screen md {
+	.MagicModal {
+		max-width: 900px;
+		padding: 30px 25px;
+	}
+}

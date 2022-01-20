@@ -27,7 +27,7 @@ export const MagicModal = observer((props) => {
 			containerClass,
 			id,
 			isLoading,
-			isOpen,
+			isOpen = true,
 			onOverlayClick,
 			showOverlay,
 			useLegacyWrapper,
@@ -56,7 +56,7 @@ export const MagicModal = observer((props) => {
 		return function cleanup() {
 			document.removeEventListener('keyup', onKeyupHandler);
 		};
-	}, []);
+	});
 
 	// will update / did update
 	useEffect(() => {
@@ -73,7 +73,7 @@ export const MagicModal = observer((props) => {
 		if (isOpen && keepScrollPosition) {
 			window.scrollTo(0, model.scrollTop);
 		}
-	});
+	}, []);
 
 	const Wrapper = WrapperComponent || (useLegacyWrapper ? LegacyModal : StandardModal);
 	const wrapperDivProps = {

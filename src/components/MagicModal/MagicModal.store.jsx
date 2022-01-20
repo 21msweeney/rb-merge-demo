@@ -8,7 +8,7 @@ class MagicModalStore {
 	constructor(linkEventStore = {}) {
 		makeObservable(this, {
 			alterModal: action.bound,
-			// model: observable,
+			model: observable.ref,
 			closeModal: action.bound,
 			openModal: action.bound,
 			resetModal: action.bound,
@@ -35,7 +35,7 @@ class MagicModalStore {
 
 	focusElement = null;
 
-	model;
+	model = {};
 
 	closeModal() {
 		const focusEl = typeof this.model.onCloseFocusElement === 'object'
