@@ -124,15 +124,15 @@ export const MediaSetDetail = observer((props) => {
 	// };
 
 
-	// const mediaSetOverrideFullscreen = (
-	// 	<MediaCylindo
-	// 		mediaCylindoId="media-cylindo-fullscreen"
-	// 		tooltipDragText="Drag to rotate. Click to zoom."
-	// 		tooltipZoomText="Move mouse to pan"
-	// 		mediaCylindoModel={mediaCylindoModel}
-	// 		zoom={true}
-	// 	/>
-	// );
+	const mediaSetOverrideFullscreen = (
+		<MediaCylindo
+			mediaCylindoId="media-cylindo-fullscreen"
+			tooltipDragText="Drag to rotate. Click to zoom."
+			tooltipZoomText="Move mouse to pan"
+			mediaCylindoModel={mediaCylindoModel}
+			zoom={true}
+		/>
+	);
 
 	const mediaControlsFullscreen = (
 		<>
@@ -143,17 +143,6 @@ export const MediaSetDetail = observer((props) => {
 			/>
 			<MediaControlFullscreenClose onClick={magicModal.closeModal} />
 		</>
-	);
-
-	const mediaSetOverrideFullscreen = (
-		<MediaCylindo
-			mediaCylindoId="media-cylindo-fullscreen"
-			tooltipDragText="Drag to rotate. Click to zoom."
-			tooltipZoomText="Move mouse to pan"
-			mediaCylindoModel={mediaCylindoModel}
-			zoom={true}
-			forceLoad={true}
-		/>
 	);
 
 	const openFullScreenModal = () => {
@@ -203,17 +192,17 @@ export const MediaSetDetail = observer((props) => {
 		</>
 	);
 
-	// const mediaSetOverride = (
-	// 	<>
-	// 		{
-	// 			!hideMediaCylindo && (
-	// 				<MediaCylindo
-	// 					mediaCylindoModel={mediaCylindoModel}
-	// 				/>
-	// 			)
-	// 		}
-	// 	</>
-	// );
+	const mediaSetOverride = (
+		<>
+			{
+				!hideMediaCylindo && (
+					<MediaCylindo
+						mediaCylindoModel={mediaCylindoModel}
+					/>
+				)
+			}
+		</>
+	);
 
 	return (
 		<div
