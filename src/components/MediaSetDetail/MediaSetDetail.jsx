@@ -40,7 +40,11 @@ const mediaSetData = [
 
 
 export const MediaSetDetail = observer((props) => {
-	const { hideMediaCylindo = false } = props;
+	const {
+		hideMediaCylindo = false,
+		mediaSetData,
+		mediaSetDetailProps,
+	} = props;
 
 	const {
 		magicModal,
@@ -55,15 +59,6 @@ export const MediaSetDetail = observer((props) => {
 	});
 
 	const detailModel = createMediaSetModel({ mediaSetData: mediaData });
-
-
-	const mediaSetDetailProps = {
-		numDotsToShow: 7,
-		mainHeight: 400,
-		mainWidth: 675,
-		showArrowsForMedium: true,
-		showDimensions: true,
-	};
 
 	// unbox selectedMediaIndex at initialization time - we don't want initialSlide prop to be observable
 	const {

@@ -4,7 +4,7 @@ import 'lib/mobx.config';
 
 import { Breadcrumbs } from './components/Breadcrumbs/Merge/Breadcrumbs/Breadcrumbs';
 import { GlobalContextProvider } from 'global/Contexts/Global.context';
-import { MediaSetDetail } from './components/MediaSetDetail/MediaSetDetail';
+import { MediaSetDetail } from './components/MediaSetDetail/Merge/MediaSetDetail';
 import { MagicModal } from './components/MagicModal/Components/MagicModal';
 
 function App() {
